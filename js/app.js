@@ -31,7 +31,15 @@ const ironApp = {
         this.createPlayer()
         this.setEventListeners()
         this.gameStart()
+        this.displayCopyright()
 
+    },
+
+    displayCopyright() {
+        this.ctx.fillStyle = 'grey'
+        this.ctx.font = '11px arial'
+        this.ctx.fillText('Developed by:', 10, this.gameSize.h - 25)
+        this.ctx.fillText('Roberto Ezquerro & Pablo Quintana', 10, this.gameSize.h - 10)
     },
 
     setDimensions() {
@@ -83,6 +91,7 @@ const ironApp = {
             this.generateEnemy()
             this.generateShootBonus()
             this.generateClearBonus()
+            this.displayCopyright()
             this.framesIndex++
         }, 30);
     },
