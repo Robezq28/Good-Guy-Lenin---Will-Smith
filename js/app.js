@@ -1,7 +1,7 @@
 const ironApp = {
     name: 'Good Guy Lenin',
-    description: '{dev-edition}',
-    version: '1.0.0',
+    description: 'Kepp my wifes name out of your f****** mouth',
+    version: '1.1.0',
     author: 'Pablo & Roberto',
     license: undefined,
     canvasNode: undefined,
