@@ -12,7 +12,7 @@ class Enemy {
 
     init() {
         this.imageInstance = new Image()
-        this.imageInstance.src = './img/player.png'
+        this.imageInstance.src = './img/enemy.png'
     }
 
     draw() {

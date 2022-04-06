@@ -8,10 +8,10 @@ class ClearBonus {
 
         this.init()
     }
-    
+
     init() {
         this.imageInstance = new Image()
-        this.imageInstance.src = './img/lenin.png'
+        this.imageInstance.src = './img/clearbonus.png'
     }
 
     draw() {

@@ -11,7 +11,7 @@ class Bullet {
 
     init() {
         this.imageInstance = new Image()
-        this.imageInstance.src = './img/shit.jpg'
+        this.imageInstance.src = './img/bullet.png'
     }
 
     draw() {

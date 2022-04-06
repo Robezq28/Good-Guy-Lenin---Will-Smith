@@ -63,7 +63,7 @@ const ironApp = {
                 if (this.onPlaying === false) {
                     this.reset()
                     if (!this.musicOnPlay) {
-                        let backgroundMusic = new Audio("./sounds/La cumbia de los Avengers - Cumbia Drive.mp3")
+                        let backgroundMusic = new Audio("./sounds/background.mp3")
                         backgroundMusic.play()
                         this.musicOnPlay = true
 
@@ -200,13 +200,13 @@ const ironApp = {
     },
 
     createPlayer() {
-        this.player = new Player(this.ctx, this.gameSize.w / 2 - 40, this.gameSize.h / 2 - 40, 80, 80)
+        this.player = new Player(this.ctx, this.gameSize.w / 2 - 40, this.gameSize.h / 2 - 40, 30, 75)
         this.player.draw()
     },
 
     generateEnemy() {
         if (this.framesIndex % this.enemyGenerateSpeed === 0) {
-            this.enemyArr.push(new Enemy(this.ctx, Math.random() * (this.gameSize.w - 550) + 250, 100, 50, 50))
+            this.enemyArr.push(new Enemy(this.ctx, Math.random() * (this.gameSize.w - 550) + 250, 100, 30, 70))
         }
     },
 
@@ -232,9 +232,9 @@ const ironApp = {
 
     shoot() {
         if (this.canShoot) {
-            let shootMusic = new Audio("./sounds/Nice Shot (SOUND EFFECT).mp3")
+            let shootMusic = new Audio("./sounds/shoot.mp3")
             shootMusic.play()
-            this.bulletsArr.push(new Bullet(this.ctx, this.player.playerPos.x, this.player.playerPos.y, 50, 50))
+            this.bulletsArr.push(new Bullet(this.ctx, this.player.playerPos.x, this.player.playerPos.y, 50, 90))
         }
     },
 
@@ -245,19 +245,19 @@ const ironApp = {
     playerClearBonusCollision() {
         this.enemyArr.splice(0, this.enemyArr.length)
         this.clearBonusArr.splice(0, this.clearBonusArr.length)
-        let clearBonusMusic = new Audio("./sounds/Soy yo, Concha. Entro.mp3")
+        let clearBonusMusic = new Audio("./sounds/clearbonus.mp3")
         clearBonusMusic.play()
     },
 
     playerShootBonusCollision() {
         this.canShoot = true
         this.shootBonusArr.splice(0, this.shootBonusArr.length)
-        let shootBonusMusic = new Audio("./sounds/My name is Jeff.mp3")
+        let shootBonusMusic = new Audio("./sounds/shootbonus.mp3")
         shootBonusMusic.play()
         window.setTimeout(() => {
             this.canShoot = false
 
-        }, 2000);
+        }, 4500);
     },
 
     gameStart() {

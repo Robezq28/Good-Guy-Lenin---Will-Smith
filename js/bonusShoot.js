@@ -11,7 +11,7 @@ class ShootBonus {
 
     init() {
         this.imageInstance = new Image()
-        this.imageInstance.src = './img/bonus.jpg'
+        this.imageInstance.src = './img/shootbonus.jpeg'
     }
 
     draw() {
