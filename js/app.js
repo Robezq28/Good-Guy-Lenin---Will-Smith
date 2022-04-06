@@ -54,7 +54,7 @@ const ironApp = {
     setEventListeners() {
         document.addEventListener('keydown', event => {
             const { key } = event
-            if (key === 'ArrowLeft' && (this.player.playerPos.x > 200 || this.player.playerPos.y <= 200)) {
+            if (key === 'ArrowLeft' && (this.player.playerPos.x > 250 || this.player.playerPos.y <= 200)) {
                 this.player.moveLeft()
             }
             if (key === 'ArrowRight' && this.player.playerPos.x < this.gameSize.w - 250 - this.player.playerSize.w) {
@@ -174,21 +174,23 @@ const ironApp = {
     },
 
     drawBackground() {
-        this.ctx.fillStyle = 'grey'
+        // this.ctx.drawImage(this.imageInstanceBackgroundImg, 0, 0, this.gameSize.w, this.gameSize.h)
+        this.ctx.fillStyle = 'black'
         this.ctx.fillRect(0, 0, this.gameSize.w, this.gameSize.h)
-        this.ctx.fillStyle = 'blue'
-        this.ctx.fillRect(0, 0, 200, this.gameSize.h)
-        this.ctx.fillRect(this.gameSize.w - 200, 0, 200, this.gameSize.h)
+        this.ctx.drawImage(this.imageInstanceAside1, 0, 0, 200, this.gameSize.h)
+        this.ctx.drawImage(this.imageInstanceAside2, this.gameSize.w - 200, 0, 200, this.gameSize.h)
+
+
 
     },
 
     pointsCounter(counter) {
+        // this.ctx.fillStyle = 'white'
+        // this.ctx.font = '20px arial'
+        // this.ctx.fillText("Your score", 40, 45)
         this.ctx.fillStyle = 'white'
-        this.ctx.font = '20px arial'
-        this.ctx.fillText("Your score", 40, 45)
-        this.ctx.fillStyle = 'white'
-        this.ctx.font = '50px arial'
-        this.ctx.fillText(counter, 50, 95)
+        this.ctx.font = '100px arial'
+        this.ctx.fillText(counter, this.gameSize.w / 2 - 100, 105)
     },
 
     nextLevel() {
@@ -201,9 +203,15 @@ const ironApp = {
 
     displayNextLevelText() {
         if (this.nextLevelText === true) {
+            this.ctx.fillStyle = 'red'
+            this.ctx.font = '100px helvetica'
+            this.ctx.fillText('NEXT LEVEL', this.gameSize.w / 2 - 300, this.gameSize.h / 2)
             this.ctx.fillStyle = 'white'
-            this.ctx.font = '100px arial'
-            this.ctx.fillText('NEXT LEVEL', this.gameSize.w / 2 - 250, this.gameSize.h / 2)
+            this.ctx.font = '100px helvetica'
+            this.ctx.fillText('NEXT LEVEL', this.gameSize.w / 2 - 301, this.gameSize.h / 2 - 10)
+            this.ctx.fillStyle = 'red'
+            this.ctx.font = '40px helvetica'
+            this.ctx.fillText('ou shit', this.gameSize.w / 2 - 300, this.gameSize.h / 2 + 200)
 
         }
     },
@@ -282,7 +290,13 @@ const ironApp = {
     },
 
     loadImages() {
+        this.imageInstanceAside1 = new Image()
+        this.imageInstanceAside1.src = './img/aside1.png'
+        this.imageInstanceAside2 = new Image()
+        this.imageInstanceAside2.src = './img/aside2.png'
         this.imageInstanceGameOver = new Image()
-        this.imageInstanceGameOver.src = './img/game_over.jpg'
+        this.imageInstanceGameOver.src = './img/start.jpg'
+        // this.imageInstanceBackgroundImg = new Image()
+        // this.imageInstanceBackgroundImg.src = './img/fondo.jpg'
     }
 }

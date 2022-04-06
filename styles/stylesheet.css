@@ -5,8 +5,9 @@ body {
 }
 
 #myCanvas {
-    background-color: grey;
-    background-image: url("../img/game_over_2.jpeg");
+    background-color: black;
+    background-image: url("../img/start.jpg");
+    background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
