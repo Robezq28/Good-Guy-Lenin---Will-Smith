@@ -72,7 +72,9 @@ const ironApp = {
                     this.reset()
                     if (!this.musicOnPlay) {
                         let backgroundMusic = new Audio("./sounds/background.mp3")
+                        backgroundMusic.volume = 1
                         backgroundMusic.play()
+
                         this.musicOnPlay = true
 
                     }
@@ -117,7 +119,7 @@ const ironApp = {
         this.displayNextLevelText()
         if (this.framesIndex % 300 === 0 && this.framesIndex !== 0) {
             this.nextLevel()
-            this.enemyGenerateSpeed / 2
+            this.enemyGenerateSpeed / 2.5
         }
 
         this.shootBonusArr.forEach(bonus => bonus.draw());
@@ -223,7 +225,7 @@ const ironApp = {
 
     generateEnemy() {
         if (this.framesIndex % this.enemyGenerateSpeed === 0) {
-            this.enemyArr.push(new Enemy(this.ctx, Math.random() * (this.gameSize.w - 550) + 250, 100, 30, 70))
+            this.enemyArr.push(new Enemy(this.ctx, Math.random() * (this.gameSize.w - 550) + 250, 100, 30, 80))
         }
     },
 
@@ -250,6 +252,7 @@ const ironApp = {
     shoot() {
         if (this.canShoot) {
             let shootMusic = new Audio("./sounds/shoot.mp3")
+            shootMusic.volume = 0.3
             shootMusic.play()
             this.bulletsArr.push(new Bullet(this.ctx, this.player.playerPos.x, this.player.playerPos.y, 50, 90))
         }
@@ -263,6 +266,7 @@ const ironApp = {
         this.enemyArr.splice(0, this.enemyArr.length)
         this.clearBonusArr.splice(0, this.clearBonusArr.length)
         let clearBonusMusic = new Audio("./sounds/clearbonus.mp3")
+        clearBonusMusic.volume = 0.7
         clearBonusMusic.play()
     },
 
@@ -270,6 +274,7 @@ const ironApp = {
         this.canShoot = true
         this.shootBonusArr.splice(0, this.shootBonusArr.length)
         let shootBonusMusic = new Audio("./sounds/shootbonus.mp3")
+        shootBonusMusic.volume = 0.1
         shootBonusMusic.play()
         window.setTimeout(() => {
             this.canShoot = false
